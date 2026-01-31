@@ -1,7 +1,5 @@
 package com.systemerr.adventofcode;
 
-import java.security.MessageDigest;
-
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class Y2015D4 {
