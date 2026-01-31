@@ -18,6 +18,15 @@ public class Y2015D1 {
     }
 
     public static void S2() {
-        
+        int floor = 0;
+        for (int charIndex = 0; charIndex < puzzleInput.toCharArray().length; charIndex++) {
+            if (puzzleInput.charAt(charIndex) == '(') floor++;
+            else floor--;
+            
+            if (floor < 0) {
+                System.out.println("S2: " + (charIndex + 1));
+                break;
+            }
+        }
     }
 }
