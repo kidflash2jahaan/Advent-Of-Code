@@ -24,6 +24,13 @@ public class Y2015D4 {
     }
 
     public static void S2() {
-
+        String hash;
+        int i = 1;
+        while (true) {
+            hash = DigestUtils.md5Hex(puzzleInput + i);
+            if (hash.startsWith("000000")) break;
+            i++;
+        }
+        System.out.println("S2: " + i);
     }
 }
