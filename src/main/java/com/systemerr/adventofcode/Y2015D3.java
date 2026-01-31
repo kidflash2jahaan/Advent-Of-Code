@@ -36,6 +36,20 @@ public class Y2015D3 {
     }
 
     public static void S2() {
+        ArrayList<Y2015D3House> houses = new ArrayList<>();
+        Y2015D3Santa santa = new Y2015D3Santa();
+        Y2015D3Santa roboSanta = new Y2015D3Santa();
+        for (int charIndex = 0; charIndex < puzzleInput.toCharArray().length; charIndex++) {
+            Y2015D3Santa selectedSanta;
+            if (charIndex % 2 == 0) {
+                selectedSanta = santa;
+            } else {
+                selectedSanta = roboSanta;
+            }
+            selectedSanta.move(puzzleInput.toCharArray()[charIndex]);
+            Y2015D3House.visitHouse(selectedSanta.x, selectedSanta.y, houses);
+        }
 
+        System.out.println("S2: " + houses.size());
     }
 }
