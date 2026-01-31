@@ -1,5 +1,9 @@
 package com.systemerr.adventofcode;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 public class Y2015D2 {
     public static String puzzleInput = "29x13x26\n" + //
                 "11x11x14\n" + //
@@ -1022,6 +1026,12 @@ public class Y2015D2 {
     }
 
     public static void S2() {
-
+        int ribbon = 0;
+        for (String line : puzzleInput.split("\n")) {
+            ArrayList<Integer> dimensions = new ArrayList<>(List.of(Integer.parseInt(line.split("x")[0]), Integer.parseInt(line.split("x")[1]), Integer.parseInt(line.split("x")[2])));
+            dimensions.sort(Comparator.naturalOrder());
+            ribbon += dimensions.get(0) + dimensions.get(0) + dimensions.get(1) + dimensions.get(1) + dimensions.get(0) * dimensions.get(1) * dimensions.get(2);
+        }
+        System.out.println("S2: " + ribbon);
     }
 }
