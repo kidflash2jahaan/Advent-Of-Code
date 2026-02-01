@@ -343,6 +343,35 @@ public class Y2015D6 {
     }
 
     public static void S2() {
+        int[][] lights = new int[1000][1000];
+        for (String line : puzzleInput.split("\n")) {
+            String parts[] = line.replace("turn ", "").replace(" through ", " ").replace(",", " ").split(" ");
+            String instruction = parts[0];
+            int x1 = Integer.parseInt(parts[1]);
+            int y1 = Integer.parseInt(parts[2]);
+            int x2 = Integer.parseInt(parts[3]);
+            int y2 = Integer.parseInt(parts[4]);
 
+            for (int x = x1; x <= x2; x++) {
+                for (int y = y1; y <= y2; y++) {
+                    if (instruction.equals("on")) {
+                        lights[x][y]++;
+                    } else if (instruction.equals("off")) {
+                        lights[x][y] = Math.max(lights[x][y] - 1, 0);
+                    } else if (instruction.equals("toggle")) {
+                        lights[x][y] += 2;
+                    }
+                }
+            }
+        }
+
+        int lightsAmount = 0;
+        for (int x = 0; x < lights.length; x++) {
+            for (int y = 0; y < lights[x].length; y++) {
+                lightsAmount += lights[x][y];
+            }
+        }
+
+        System.out.println("S2: " + lightsAmount);
     }
 }
