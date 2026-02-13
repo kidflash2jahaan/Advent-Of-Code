@@ -1,7 +1,5 @@
 package com.systemerr.adventofcode;
 
-import java.util.Arrays;
-
 public class Y2015D6 {
     public static String puzzleInput = "turn off 660,55 through 986,197\n" + //
                 "turn off 341,304 through 638,850\n" + //
